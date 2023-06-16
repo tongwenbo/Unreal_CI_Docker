@@ -1,0 +1,13 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "{7E570114-4F90-96EE-2A9A-F9B0452936F8}",
+	"Category": "",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "Vs",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}
