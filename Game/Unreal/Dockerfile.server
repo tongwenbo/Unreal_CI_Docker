@@ -1,0 +1,14 @@
+FROM adamrehn/ue4-full:custom AS builder
+
+COPY --chown=ue4:ue4 . /tmp/project
+
+WORKDIR /tmp/project
+RUN ue4 package Development -server -noclient
+
+FROM adamrehn/ue4-runtime:latest
+COPY --from=builder --chown=ue4:ue4 /tmp/project/dist/LinuxServer /home/ue4/project
+
+EXPOSE 7777/udp
+EXPOSE 7777/tcp
+
+ENTRYPOINT ["/home/ue4/project/VsServer.sh", "-log"]
